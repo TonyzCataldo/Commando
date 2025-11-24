@@ -4,10 +4,11 @@ const AuthFormBtn = ({
   children,
   className,
   isSubmitting,
+  captchaToken,
 }: AuthFormBtnProps) => {
   return (
     <button
-      disabled={isSubmitting}
+      disabled={isSubmitting || captchaToken === ""}
       type="submit"
       className={`bg-secondary-500 hover:bg-secondary-600 active:scale-95 transition-all duration-100 ease-in-out shadow-md px-9 py-6 w-fit rounded-lg text-lg cursor-pointer font-semibold text-white ${className}`}
     >

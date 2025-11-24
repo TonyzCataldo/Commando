@@ -1,12 +1,11 @@
 import { HomeSectionPropsType } from "./HomeSectionTypes";
 
-const HomeSection = ({children}: HomeSectionPropsType) => {
-
-    return (
-        <section className="w-full gap-7 flex flex-col md:flex-row">
-            {children}
-        </section>
-    )
-}
+const HomeSection = ({ children }: HomeSectionPropsType) => {
+  return (
+    <section className="w-full gap-10 lg:gap-16 flex flex-col">
+      {children}
+    </section>
+  );
+};
 
 export default HomeSection;

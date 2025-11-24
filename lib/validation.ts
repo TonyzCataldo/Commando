@@ -24,3 +24,25 @@ export const loginSchema = z.object({
   password: z.string().min(1, "Enter the password"),
 });
 export type LoginInput = z.infer<typeof loginSchema>;
+
+export const taskSchema = z.object({
+  title: z.string().min(1, "Enter the task name"),
+  type: z
+    .enum(["PRATICE", "DOIT"], "Select a task type")
+    .refine((val) => val !== undefined, {
+      message: "Select a task type",
+    }),
+  estimate: z
+    .number("Enter a valid minutes value")
+    .int("enter a valid minutes value")
+    .min(0, "Enter a valid minutes value")
+    .max(1440, "Maximum allowed is 24 hours (1440 minutes)"),
+});
+
+export type TaskFormValues = z.infer<typeof taskSchema>;
+
+export const sectionSchema = z.object({
+  name: z.string().min(1, "Enter the section name"),
+});
+
+export type SectionFormValues = z.infer<typeof sectionSchema>;

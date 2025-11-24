@@ -1,3 +1,5 @@
 export type StartFreeBtnPropsType = {
-    className?: string;
-}
+  className?: string;
+  title: string;
+  href: string;
+};

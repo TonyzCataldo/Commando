@@ -7,6 +7,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum TaskType {
+  PRATICE
+  DOIT
+}
+
 model User {
   id           String   @id @default(cuid())
   name         String?
@@ -15,4 +20,40 @@ model User {
   passwordHash String
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
+  tasks        Task[]
+  sections     Section[]
 }
+
+model Task {
+  id        String   @id @default(cuid())
+  title     String
+  done      Boolean  @default(false)
+  type      TaskType
+  estimate  Int
+  time      Float
+
+  // chave estrangeira:
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  sectionId String?
+  section   Section? @relation(fields: [sectionId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId, sectionId])
+}
+
+model Section {
+  id        String   @id @default(cuid())
+  name      String
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tasks     Task[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId, createdAt])
+}
+

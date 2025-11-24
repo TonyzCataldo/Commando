@@ -10,6 +10,8 @@ const useRegister = () => {
 
   const [serverError, setServerError] = useState<string | null>(null);
 
+  const [captchaToken, setCaptchaToken] = useState<string>("");
+
   const {
     register,
     handleSubmit,
@@ -27,6 +29,7 @@ const useRegister = () => {
         email: values.email,
         password: values.password,
         confirm: values.confirm,
+        __captchaToken: captchaToken,
       }),
     });
     if (!res.ok) {
@@ -44,6 +47,8 @@ const useRegister = () => {
     errors,
     isSubmitting,
     onSubmit,
+    captchaToken,
+    setCaptchaToken,
   };
 };
 

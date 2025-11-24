@@ -25,6 +25,7 @@ const LoginForm = () => {
         {...register("email")}
       />
       <AuthInput
+        type="password"
         placeholder="Password"
         label="password"
         error={errors.password?.message}

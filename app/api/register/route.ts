@@ -3,9 +3,34 @@ import { hash } from "bcryptjs";
 import { prisma } from "@/lib/prisma";
 import { registerSchema } from "@/lib/validation";
 
+async function verifyTurnstile(token: string, ip?: string | null) {
+  const form = new URLSearchParams();
+  form.append("secret", process.env.TURNSTILE_SECRET_KEY!);
+  form.append("response", token);
+  if (ip) form.append("remoteip", ip);
+
+  const response = await fetch(
+    "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+    {
+      method: "POST",
+      body: form,
+    }
+  );
+
+  return response.json() as Promise<{ success: boolean }>;
+}
+
 export async function POST(req: Request) {
   try {
     const body = await req.json();
+    const token = body.__captchaToken as string | undefined;
+    if (!token) {
+      return NextResponse.json({ error: "Captcha required" }, { status: 400 });
+    }
+    const captcha = await verifyTurnstile(token);
+    if (!captcha.success) {
+      return NextResponse.json({ error: "Captcha failed" }, { status: 400 });
+    }
 
     // 1) valida e normaliza (email já sai trim/lowercase se seu schema tiver transform)
     const parsed = registerSchema.safeParse(body);

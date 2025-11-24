@@ -8,7 +8,14 @@ const MenuIcon = () => {
   };
 
   return (
-    <Menu width={30} height={30} color="black" className="cursor-pointer md:hidden" onClick={toggle} />
+    <Menu
+      width={30}
+      height={30}
+      color="black"
+      className="cursor-pointer md:hidden"
+      aria-label="open/close mobile menu"
+      onClick={toggle}
+    />
   );
 };
 
