@@ -29,7 +29,7 @@ export default async function Home() {
             </div>
             <div className="w-full max-w-[400px] md:max-w-none self-center rounded-2xl border-[1.5px] border-black/10 shadow-[0_4px_20px_rgba(0,0,0,0.12)]">
               <Image
-                src={"/capturar3.JPG"}
+                src={"/Capturar3.JPG"}
                 width={1905}
                 height={916}
                 className="w-full hidden md:block rounded-2xl"
@@ -37,7 +37,7 @@ export default async function Home() {
                 draggable={false}
               />
               <Image
-                src={"/capturar4.JPG"}
+                src={"/Capturar4.JPG"}
                 width={459}
                 height={807}
                 className="w-full max-w-[400px] md:hidden rounded-2xl"
