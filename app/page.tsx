@@ -14,8 +14,8 @@ export default async function Home() {
       <div className="flex items-center justify-center">
         <HomeBody>
           <HomeSection>
-            <div className="flex-[0.8] text-center justify-center items-center  flex flex-col gap-6">
-              <h1 className="text-4xl lg:text-5xl text-gray-950 font-semibold">
+            <div className="flex-[0.8] text-center justify-center items-center py-10 flex flex-col gap-6">
+              <h1 className="text-4xl lg:text-6xl text-gray-950 font-semibold">
                 Take the Command now!
               </h1>
               <p className="text-2xl text-gray-600">
@@ -25,6 +25,7 @@ export default async function Home() {
               <StartFreeBtn
                 href={session ? "/dashboard" : "/register"}
                 title={session ? "Go to Dashboard" : "Start for free!"}
+                className="mt-5 lg:mt-10"
               />
             </div>
             <div className="w-full max-w-[400px] md:max-w-none self-center rounded-2xl border-[1.5px] border-black/10 shadow-[0_4px_20px_rgba(0,0,0,0.12)]">
