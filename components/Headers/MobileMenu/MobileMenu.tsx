@@ -3,7 +3,6 @@
 import SolidLinkBtn from "@/components/Buttons/SolidBtn/SolidLinkBtn";
 import StartFreeBtn from "@/components/Buttons/StartFreeBtn/StartFreeBtn";
 import useMobileMenu from "./hooks/useMobileMenu";
-import { Session } from "inspector/promises";
 
 const MobileMenu = ({ session }: { session: any }) => {
   const { isMenuOpen } = useMobileMenu();
@@ -11,14 +10,10 @@ const MobileMenu = ({ session }: { session: any }) => {
   return (
     <>
       <div
-        className={`fixed top-[97px] md:hidden flex flex-col z-20 gap-6 w-dvw bg-gray-50 py-6 px-4 ${
+        className={`fixed top-[66px] md:hidden flex flex-col z-20 gap-6 w-dvw bg-gray-50 py-6 px-4 ${
           !isMenuOpen ? "-translate-y-[350px]" : ""
         }`}
       >
-        <p>asdasdasdad</p>
-        <p>asdasdasdad</p>
-        <p>asdasdasdad</p>
-        <div className="w-full h-px bg-gray-400"></div>
         <div className="flex justify-center gap-2">
           {session === null && (
             <SolidLinkBtn

@@ -7,9 +7,9 @@ import { redirect } from "next/navigation";
 
 export default async function Register() {
   const session = await getAuthSession();
-    if (session) {
-      redirect("/")
-    }
+  if (session) {
+    redirect("/");
+  }
   return (
     <div className="">
       <HomeHeader />
@@ -30,6 +30,10 @@ export default async function Register() {
             <Link className="text-primary-400 font-semibold" href={"/login"}>
               Log in
             </Link>
+          </p>
+          <p className="text-secondary-500 text-center">
+            * Please, after firts attempt wait some seconds and try again... the
+            db is in sleep mode
           </p>
         </Paper>
       </main>

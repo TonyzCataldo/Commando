@@ -27,13 +27,22 @@ export default async function Home() {
                 title={session ? "Go to Dashboard" : "Start for free!"}
               />
             </div>
-            <div className="w-full rounded-2xl border-[1.5px] border-black/10 shadow-[0_4px_20px_rgba(0,0,0,0.12)]">
+            <div className="w-full max-w-[400px] md:max-w-none self-center rounded-2xl border-[1.5px] border-black/10 shadow-[0_4px_20px_rgba(0,0,0,0.12)]">
               <Image
-                src={"/commando3.PNG"}
-                width={1024}
-                height={1024}
-                className="aspect-video w-full rounded-2xl"
+                src={"/capturar3.JPG"}
+                width={1905}
+                height={916}
+                className="w-full hidden md:block rounded-2xl"
                 alt="Task list draw"
+                draggable={false}
+              />
+              <Image
+                src={"/capturar4.JPG"}
+                width={459}
+                height={807}
+                className="w-full max-w-[400px] md:hidden rounded-2xl"
+                alt="Task list draw"
+                draggable={false}
               />
             </div>
           </HomeSection>

@@ -1,6 +1,7 @@
 "use client";
 
 import { CircleUserRound, PanelLeftClose, PanelLeftOpen } from "lucide-react";
+import { signOut } from "next-auth/react";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -38,7 +39,7 @@ const DashHeader = () => {
             <PanelLeftClose width={34} height={34} />
           </button>
         </div>
-        <div className="flex flex-col gap-4 px-2 py-4 w-full">
+        <div className="flex flex-col h-full gap-4 px-2 py-4 w-full">
           <Link
             href={"/dashboard"}
             className="hover:bg-primary-100 p-1.5 text-2xl text-gray-950 rounded-md font-semibold"
@@ -51,6 +52,12 @@ const DashHeader = () => {
           >
             Insights
           </Link>
+          <button
+            onClick={() => signOut({ callbackUrl: "/" })}
+            className="hover:bg-primary-100 mt-auto p-1.5 text-2xl text-secondary-600 rounded-md text-start cursor-pointer font-semibold"
+          >
+            Logout
+          </button>
         </div>
       </aside>
       <div
