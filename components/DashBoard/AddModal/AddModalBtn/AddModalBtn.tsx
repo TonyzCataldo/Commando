@@ -4,7 +4,10 @@ import { AddModalBtnProps } from "./AddTaskBtnTypes";
 
 const AddModalBtn = ({ onClick }: AddModalBtnProps) => {
   return (
-    <SolidBtn className="bg-primary-300 hover:bg-primary-400" onClick={onClick}>
+    <SolidBtn
+      className="bg-primary-300 hover:bg-primary-400 rounded-full !px-6"
+      onClick={onClick}
+    >
       <CirclePlus color="white" />
     </SolidBtn>
   );

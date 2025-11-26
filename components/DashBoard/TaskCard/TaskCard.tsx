@@ -5,6 +5,7 @@ import { formatTime } from "@/utils/formatTime";
 import SolidBtn from "@/components/Buttons/SolidBtn/SolidBtn";
 import { CircleCheckBig } from "lucide-react";
 import { TaskCardProps } from "./TaskCardTypes";
+import Target from "@/components/icons/Target";
 
 const TaskCard = ({
   estimate,
@@ -30,11 +31,9 @@ const TaskCard = ({
         </div>
 
         {taskDone && taskType === "DOIT" ? (
-          <CircleCheckBig
-            className={`text-secondary-500 mt-4`}
-            width={40}
-            height={40}
-          />
+          <div className="mt-4">
+            <Target />
+          </div>
         ) : (
           <>
             <div className={`flex gap-3 `}>
@@ -57,11 +56,9 @@ const TaskCard = ({
               </SolidBtn>
             )}
             {taskType === "PRATICE" && taskDone && (
-              <CircleCheckBig
-                className={`text-secondary-500 mt-4`}
-                width={40}
-                height={40}
-              />
+              <div className="mt-4">
+                <Target />
+              </div>
             )}
             {actualizeTaskError && <span>Try save again!</span>}
           </>
