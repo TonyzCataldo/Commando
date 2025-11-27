@@ -29,5 +29,5 @@ export default async function TasksPage({ date, sectionId }: TasksProps) {
     orderBy: { createdAt: "desc" },
   });
 
-  return <TasksGrid tasks={tasks} />;
+  return <TasksGrid tasks={tasks} sectionId={sectionId} />;
 }

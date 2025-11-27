@@ -3,7 +3,6 @@ import Paper from "@/components/Wrappers/Paper/Paper";
 import useTaskTimer from "./useTaskTimer";
 import { formatTime } from "@/utils/formatTime";
 import SolidBtn from "@/components/Buttons/SolidBtn/SolidBtn";
-import { CircleCheckBig } from "lucide-react";
 import { TaskCardProps } from "./TaskCardTypes";
 import Target from "@/components/icons/Target";
 

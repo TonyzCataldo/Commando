@@ -14,7 +14,10 @@ const InsightForm = ({
       onSubmit={handleSubmit}
       className="flex flex-col min-[700px]:flex-row gap-2"
     >
-      <select {...register("initial")} className="border px-2 py-1 rounded">
+      <select
+        {...register("initial")}
+        className="border bg-white px-2 py-1 rounded"
+      >
         <option value="">Initial date</option>
         {days.map((d) => (
           <option key={d} value={d}>
@@ -23,7 +26,10 @@ const InsightForm = ({
         ))}
       </select>
 
-      <select {...register("end")} className="border px-2 py-1 rounded">
+      <select
+        {...register("end")}
+        className="border bg-white px-2 py-1 rounded"
+      >
         <option value="">End date</option>
         {days.map((d) => (
           <option key={d} value={d}>
