@@ -31,8 +31,8 @@ const useGetTasks = () => {
   } = useForm<GetTasksFormValues>({
     defaultValues: {
       // opcional: por ex, último dia e hoje
-      initial: days[0],
-      end: days[0],
+      initial: "",
+      end: "",
     },
   });
 

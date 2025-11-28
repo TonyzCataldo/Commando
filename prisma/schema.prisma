@@ -30,7 +30,7 @@ model Task {
   done      Boolean  @default(false)
   type      TaskType
   estimate  Int
-  time      Float
+  time      Float    @default(0)
 
   // chave estrangeira:
   userId    String

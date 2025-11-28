@@ -13,16 +13,16 @@ const TasksGrid = ({ tasks, sectionId }: TasksGridProps) => {
         onClick={() => setIsOpen(!isOpen)}
         className={`${
           isOpen ? "rotate-180" : ""
-        } absolute top-5 cursor-pointer bg-transparent right-0`}
+        } absolute top-5 w-9/12 cursor-pointer bg-transparent right-0`}
       >
-        <ChevronDown width={40} height={40} />
+        <ChevronDown width={40} height={40} className={`${isOpen ? "mr-auto" : "ml-auto"}`} />
       </button>
       <section
         className={`${
           isOpen ? "grid" : "hidden"
-        } w-full grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 `}
+        } w-full grid-cols-1 gap-8 md:grid-cols-[repeat(auto-fill,minmax(350px,1fr))]`}
       >
-        {tasks.map((task) => (
+        {[...tasks].sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()).map((task) => (
           <TaskCard
             key={task.id}
             taskType={task.type}

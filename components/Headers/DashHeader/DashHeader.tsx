@@ -11,7 +11,7 @@ const DashHeader = () => {
   return (
     <>
       <header
-        className={`fixed z-30 flex bg-primary-50 border-b  items-center border-secondary-500 px-4 lg:px-6 py-4 transition-all duration-300 ${
+        className={`fixed z-30 flex bg-gray-50 border-b  items-center border-gray-400 px-4 lg:px-6 py-4 transition-all duration-300 ${
           asideIsOpen ? "w-[calc(100%-288px)] ml-72" : "w-full"
         }`}
       >
@@ -29,9 +29,9 @@ const DashHeader = () => {
       <aside
         className={`fixed flex flex-col z-40 transition-all duration-300 ${
           asideIsOpen ? "w-72" : "w-0 -translate-x-96"
-        } min-h-screen h-full bg-primary-50`}
+        } min-h-screen h-full bg-[#eff5f3]`}
       >
-        <div className="py-4 px-2 w-full flex border-b border-secondary-500 items-center justify-end ">
+        <div className="py-4 px-2 w-full flex border-b border-gray-400 items-center justify-end ">
           <button
             onClick={() => setAsideIsOpen(false)}
             className="cursor-pointer"
@@ -42,26 +42,26 @@ const DashHeader = () => {
         <div className="flex flex-col h-full gap-4 px-2 py-4 w-full">
           <Link
             href={"/dashboard"}
-            className="hover:bg-primary-100 p-1.5 text-2xl text-gray-950 rounded-md font-semibold"
+            className="hover:bg-primary-50 p-1.5 text-2xl text-gray-950 rounded-md font-semibold"
           >
             Dashboard
           </Link>
           <Link
             href={"/dashboard/insights"}
-            className="hover:bg-primary-100 p-1.5 text-2xl text-gray-950 rounded-md font-semibold"
+            className="hover:bg-primary-50 p-1.5 text-2xl text-gray-950 rounded-md font-semibold"
           >
             Insights
           </Link>
           <button
             onClick={() => signOut({ callbackUrl: "/" })}
-            className="hover:bg-primary-100 mt-auto p-1.5 text-2xl text-secondary-600 rounded-md text-start cursor-pointer font-semibold"
+            className="hover:bg-secondary-50 mt-auto p-1.5 text-2xl text-secondary-600 rounded-md text-start cursor-pointer font-semibold"
           >
             Logout
           </button>
         </div>
       </aside>
       <div
-        className={`transition-all bg-primary-50 duration-300 ${
+        className={`transition-all bg-gray-50 duration-300 ${
           asideIsOpen ? "w-72" : "w-0 -translate-x-96"
         } hidden md:flex min-h-screen h-full shrink-0`}
       ></div>

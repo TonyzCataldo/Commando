@@ -22,9 +22,9 @@ const TaskCard = ({
   });
   const estimateSeconds = estimate * 60;
   return (
-    <Paper className=" md:px-6 w-full md:py-6">
+    <Paper className=" md:px-6 w-full justify-center md:py-6">
       <div className="flex flex-col items-center gap-4 justify-center">
-        <p className="text-gray-950 text-3xl">{title}</p>
+        <p className="text-gray-950 text-center text-3xl">{title}</p>
         <div className="flex items-center text-gray-950 text-3xl justify-center">
           <p>{formatTime(time)}</p>/<p>{formatTime(estimateSeconds)}</p>
         </div>

@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
-const useAddTask = ({sectionId}: {sectionId: string}) => {
+const useAddTask = ({sectionId, closeModal}: {sectionId: string; closeModal?: () => void;}) => {
   const [serverError, setServerError] = useState<string | null>(null);
   const router = useRouter();
 
@@ -35,6 +35,9 @@ const useAddTask = ({sectionId}: {sectionId: string}) => {
       return;
     }
     router.refresh();
+    if (closeModal) {
+      closeModal()
+    }
   };
   return {
     register,

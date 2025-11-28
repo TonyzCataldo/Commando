@@ -6,9 +6,11 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
-const useAddSection = () => {
+const useAddSection = ({closeModal}:{closeModal?: () => void;}) => {
   const [serverError, setServerError] = useState<string | null>(null);
   const router = useRouter();
+
+  console.log(closeModal);
 
   const {
     register,
@@ -31,7 +33,11 @@ const useAddSection = () => {
       setServerError(data?.error ?? "Create section error.");
       return;
     }
+    if (closeModal) {
+      closeModal()
+    }
     router.refresh();
+    
   };
   return {
     register,

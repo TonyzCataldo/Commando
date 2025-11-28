@@ -17,8 +17,9 @@ const InsightForm = ({
       <select
         {...register("initial")}
         className="border bg-white px-2 py-1 rounded"
+        
       >
-        <option value="">Initial date</option>
+        <option value="" disabled hidden  >Initial date</option>
         {days.map((d) => (
           <option key={d} value={d}>
             {d}
@@ -29,8 +30,9 @@ const InsightForm = ({
       <select
         {...register("end")}
         className="border bg-white px-2 py-1 rounded"
+        
       >
-        <option value="">End date</option>
+        <option value="" disabled hidden >End date</option>
         {days.map((d) => (
           <option key={d} value={d}>
             {d}
@@ -38,7 +40,7 @@ const InsightForm = ({
         ))}
       </select>
 
-      <AuthFormBtn isSubmitting={isSubmitting}>Create Insights</AuthFormBtn>
+      <AuthFormBtn className="!py-3 !px-4" isSubmitting={isSubmitting}>Create Insights</AuthFormBtn>
     </form>
   );
 };

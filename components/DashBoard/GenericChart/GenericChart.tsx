@@ -25,8 +25,13 @@ export function GenericChart({ title, data, colors }: GenericPieProps) {
 
   if (total === 0) {
     return (
-      <div className="w-full h-80 rounded-2xl p-4 flex items-center justify-center">
-        <span className="text-sm text-gray-400">No data for this period.</span>
+      <div className="w-full flex flex-col items-center h-96 rounded-2xl p-4">
+        <h2 className="text-2xl font-semibold mb-2 text-center text-gray-950">
+          {title}
+        </h2>
+        <p className="text-2xl mt-auto mb-auto font-semibold text-center text-secondary-500">
+          No data for this chart :/
+        </p>
       </div>
     );
   }

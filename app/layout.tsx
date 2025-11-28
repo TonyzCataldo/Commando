@@ -21,8 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`antialiased ${inter.variable} ${inter.className} relative bg-[radial-gradient(#046a3833_1px,transparent_1px)] 
-              bg-[size:18px_18px]`}
+        className={`antialiased ${inter.variable} ${inter.className} bg-gray-50`}
       >
         <Providers>{children}</Providers>
       </body>

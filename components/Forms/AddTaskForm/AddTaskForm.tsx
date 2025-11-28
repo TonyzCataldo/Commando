@@ -3,7 +3,7 @@ import useAddTask from "@/app/api/tasks/useAddTask";
 import AuthInput from "../AuthInput/AuthInput";
 import AuthFormBtn from "@/components/Buttons/AuthFormBtn/AuthFormBtn";
 
-const AddTaskForm = ({sectionId}:{sectionId: string}) => {
+const AddTaskForm = ({sectionId, closeModal}:{sectionId: string; closeModal?: () => void;}) => {
   const {
     register,
     serverError,
@@ -11,7 +11,7 @@ const AddTaskForm = ({sectionId}:{sectionId: string}) => {
     errors,
     isSubmitting,
     onSubmit,
-  } = useAddTask({sectionId});
+  } = useAddTask({sectionId, closeModal});
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}

@@ -4,7 +4,7 @@ import useAddSection from "@/app/api/sections/useAddSection";
 import AuthInput from "../AuthInput/AuthInput";
 import AuthFormBtn from "@/components/Buttons/AuthFormBtn/AuthFormBtn";
 
-const AddSectionForm = () => {
+const AddSectionForm = ({closeModal}:{closeModal?: () => void;}) => {
   const {
     register,
     serverError,
@@ -12,7 +12,9 @@ const AddSectionForm = () => {
     errors,
     isSubmitting,
     onSubmit,
-  } = useAddSection();
+  } = useAddSection({closeModal});
+
+  console.log("sectionform", closeModal);
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
