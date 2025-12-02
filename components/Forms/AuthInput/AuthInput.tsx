@@ -16,6 +16,7 @@ const AuthInput = ({
         {...rest}
         id={label}
         type={type}
+        {...(type === "password" ? { autoComplete: "new-password" } : {})}
         placeholder={placeholder}
         className={`p-2 w-full border rounded-md border-gray-600 outline-primary-500 ${
           error ? "border-secondary-500 outline-secondary-500" : ""

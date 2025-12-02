@@ -28,6 +28,30 @@ export default async function Home() {
                 className="mt-5 lg:mt-10"
               />
             </div>
+            <p className="text-center text-2xl text-gray-600 pt-4">
+              Register your tasks by section and control your time.
+            </p>
+            <div className="w-full max-w-[400px] md:max-w-none self-center rounded-2xl border-[1.5px] border-black/10 shadow-[0_4px_20px_rgba(0,0,0,0.12)]">
+              <Image
+                src={"/tasks.JPG"}
+                width={1905}
+                height={915}
+                className="w-full hidden md:block rounded-2xl"
+                alt="Task list draw"
+                draggable={false}
+              />
+              <Image
+                src={"/tasks-mobile.JPG"}
+                width={428}
+                height={807}
+                className="w-full max-w-[400px] md:hidden rounded-2xl"
+                alt="Task list draw"
+                draggable={false}
+              />
+            </div>
+            <p className="text-center text-2xl text-gray-600 pt-4">
+              Generate insights to track your numbers.
+            </p>
             <div className="w-full max-w-[400px] md:max-w-none self-center rounded-2xl border-[1.5px] border-black/10 shadow-[0_4px_20px_rgba(0,0,0,0.12)]">
               <Image
                 src={"/insights-img.JPG"}

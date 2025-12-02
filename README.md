@@ -1,36 +1,226 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+🎯 CommanDo
 
-## Getting Started
+A military-themed time & task management system with visual insights.
+Final Project for CS50x – Introduction to Computer Science (Harvard University)
 
-First, run the development server:
+📌 Table of Contents
 
-```bash
+Overview
+
+Features
+
+Tech Stack
+
+Project Structure
+
+How It Works
+
+Demo Video
+
+Running Locally
+
+Environment Variables
+
+Screenshots
+
+Future Improvements
+
+Author
+
+🚀 Overview
+
+CommanDo is a productivity and time-management application inspired by military discipline.
+Users can create accounts, organize their routine into sections, create tasks (with two task types), track time spent, and view visual insights through dynamic charts.
+
+This project was developed using knowledge gained throughout CS50, combined with my experience as a front-end developer, including learning how to independently explore new technologies.
+
+✨ Core Features
+🟩 Authentication & Profile
+
+User registration and login with NextAuth (JWT)
+
+Secure integration with Prisma + PostgreSQL
+
+Users can update name and avatar
+
+🎯 Sections
+
+Users can create “Sections” (like categories: Study, Gym, Work, etc.)
+Inside each section they can create tasks.
+
+⏱ Two Smart Task Types
+
+This is the main innovation of the project:
+
+1. Practice Tasks (Pratice Tasks) — time-based completion
+
+User defines a minimum practice time
+
+Timer tracks real execution time
+
+Task is marked as completed automatically (when user saves) once the minimum practice time is reached
+
+Users can keep practicing beyond the minimum time (that’s actually considered good)
+
+2. Do It Tasks
+
+User sets an estimated time to complete the task
+
+Completion must be done manually by the user
+
+After marking as done, the timer cannot continue
+
+Goal: finish it in less time than the estimate
+
+This system creates a unique workflow balancing discipline (Do It) and mastery improvement (Pratice).
+
+📊 Insight Dashboard
+
+Users can open the Insights page and generate visual charts for selected time periods, including:
+
+Tasks Completed (by type)
+
+Estimated vs Real Time
+
+Practice stats
+
+Time spent across Sections
+
+Comparison between tasks
+
+Many custom charts built with Recharts
+
+🧭 Military Theme
+
+The entire UI uses a military style:
+
+Colors inspired by command centers
+
+“CommanDo” naming
+
+Elements styled to look tactical and objective
+
+Future: ranking, achievements, armory, daily missions, etc.
+
+🛠 Tech Stack
+Frontend & UI
+
+Next.js 15 (App Router)
+
+React 18
+
+Tailwind CSS
+
+Recharts (interactive charts)
+
+React Hook Form + Zod (forms & validation)
+
+Backend
+
+Next.js Route Handlers
+
+NextAuth (JWT Strategy)
+
+Prisma ORM
+
+PostgreSQL (Neon DB)
+
+Other Tools
+
+Typescript
+
+Turstile (cloudflare)
+
+Vercel (optional for deployment)
+
+CS50 tools & concepts
+
+📁 Project Structure (simplified)
+/app
+/dashboard
+/profile
+/insights
+/api
+/auth
+/task
+/section
+...
+/components
+/lib
+/prisma
+public
+
+🎥 Demo Video
+
+(Insert your YouTube link here)
+
+Required by CS50 — please record a 1–3 minute demo.
+
+🖥 How to Run Locally
+
+Clone the project:
+
+git clone https://github.com/TonyzCataldo/Commando.git
+cd commando
+npm install
+
+Create your .env file:
+
+cp .env.example .env
+
+Fill the environment variables (docs below).
+
+Run database migrations:
+
+npx prisma migrate dev
+
+Run the development server:
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
+http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+🔐 Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Your repository should NOT include the real values.
+Only include env.example:
 
-## Learn More
+DATABASE_URL=""
+NEXTAUTH_SECRET=""
+NEXTAUTH_URL=""
 
-To learn more about Next.js, take a look at the following resources:
+These sensitive values must be created manually by anyone running the project.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+🖼 Screenshots
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+![Dashboard Screenshot](./public//tasks.JPG)
 
-## Deploy on Vercel
+![Insights Screenshot](./public/insights-img.JPG)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+![Home Screenshot](./public/home-screenshot.JPG)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+![Register Screenshot](./public/register-screenshot.JPG)
+
+![Avatar Screenshot](./public/avatar-screenshot.JPG)
+
+🧭 Future Features
+
+🏅 Ranking system
+
+⚔ Armory (skins, badges)
+
+🏅 Achievements system
+
+🎯 Daily missions
+
+📅 Habit streaks
+
+👨‍💻 Author
+
+Antonio Alves Cataldo
+Front-End Developer (React, Next.js, TypeScript, Tailwind, Zustand and more)
+CS50x 2025 Student
+
+GitHub • LinkedIn
+https://github.com/TonyzCataldo // https://www.linkedin.com/in/antonio-alves-cataldo/
