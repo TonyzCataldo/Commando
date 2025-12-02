@@ -21,11 +21,15 @@ export default async function ProfilePage() {
     },
   });
 
+  if (!user) {
+    redirect("/login");
+  }
+
   return (
     <div className="flex items-center py-12 px-4 lg:px-6 flex-col gap-12 w-full mt-[67px] min-h-screen">
       <div className="flex flex-col gap-12 items-center">
         <div className="flex flex-col items-center justify-center gap-2 lg:flex-row lg:gap-6">
-          <UserModal image={user!.image} />
+          <UserModal image={user.image} />
           <div className="flex flex-col gap-2 items-center justify-center">
             <p className="text-4xl text-center">{user?.name}</p>
             <p className="text-center text-sm">{user?.email}</p>
