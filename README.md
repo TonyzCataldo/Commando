@@ -152,7 +152,7 @@ public
 
 🎥 Demo Video
 
-https://www.youtube.com/watch?v=rR0T8wcvtSc&feature=youtu.be
+[Youtube video](https://www.youtube.com/watch?v=IN-nQ2gpilI)
 
 
 🖥 How to Run Locally
