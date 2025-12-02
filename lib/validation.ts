@@ -2,7 +2,11 @@ import { z } from "zod";
 
 export const registerSchema = z
   .object({
-    name: z.string().trim().optional(),
+    name: z
+      .string()
+      .min(1, "Enter a name")
+      .trim()
+      .regex(/^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/, "The name cannot contain numbers"),
     email: z
       .email("Invalid E-mail")
       .transform((val) => val.trim().toLowerCase()),
@@ -46,3 +50,25 @@ export const sectionSchema = z.object({
 });
 
 export type SectionFormValues = z.infer<typeof sectionSchema>;
+
+export const avatarOptions = [
+  "/white-soldier.png",
+  "/black-soldier.png",
+  "/asian-soldier.png",
+  "/fox-white-soldier.png",
+  "/fox-black-soldier.png",
+  "/fox-asian-soldier.png",
+] as const;
+
+export const profileSchema = z.object({
+  image: z.string().optional(),
+  name: z
+    .string()
+    .trim()
+    .optional()
+    .refine((value) => !value || /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/.test(value), {
+      message: "The name cannot contain numbers",
+    }),
+});
+
+export type ProfileFormValues = z.infer<typeof profileSchema>;

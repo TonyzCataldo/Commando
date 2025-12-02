@@ -1,46 +1,48 @@
 "use client";
 
-import { TaskFormValues, taskSchema } from "@/lib/validation";
+import { ChangeProfileFormProps } from "@/components/Forms/ChangeProfileForm/ChangeProfileFormTypes";
+import { ProfileFormValues, profileSchema } from "@/lib/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
-const useAddTask = ({
-  sectionId,
-  closeModal,
-}: {
-  sectionId: string;
-  closeModal?: () => void;
-}) => {
+const useChangeProfile = ({ closeModal, image }: ChangeProfileFormProps) => {
   const [serverError, setServerError] = useState<string | null>(null);
   const router = useRouter();
+  const { update } = useSession();
 
   const {
     register,
     handleSubmit,
+
     reset,
     formState: { errors, isSubmitting },
-  } = useForm<TaskFormValues>({ resolver: zodResolver(taskSchema) });
+  } = useForm<ProfileFormValues>({
+    resolver: zodResolver(profileSchema),
+    defaultValues: { image: image },
+  });
 
-  const onSubmit = async (values: TaskFormValues) => {
+  const onSubmit = async (values: ProfileFormValues) => {
     setServerError(null);
 
-    const res = await fetch("/api/tasks", {
-      method: "POST",
+    const res = await fetch("/api/profile", {
+      method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        title: values.title,
-        type: values.type,
-        estimate: values.estimate,
-        sectionId: sectionId,
+        image: values.image,
+        name: values.name,
       }),
     });
     if (!res.ok) {
       const data = await res.json().catch(() => ({}));
-      setServerError(data?.error ?? "Create task error.");
+      setServerError(data?.error ?? "Update profile error.");
       return;
     }
+
+    await update();
+
     reset();
     router.refresh();
     if (closeModal) {
@@ -57,4 +59,4 @@ const useAddTask = ({
   };
 };
 
-export default useAddTask;
+export default useChangeProfile;

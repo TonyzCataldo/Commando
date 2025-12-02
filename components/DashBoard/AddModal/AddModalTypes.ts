@@ -6,5 +6,4 @@ type AddModalChildProps = {
 export type AddModalProps = {
   title: string;
   children: ReactElement<AddModalChildProps>;
-  btnClassName?: string;
 };

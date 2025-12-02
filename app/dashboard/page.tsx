@@ -26,7 +26,7 @@ export default function Dashboard() {
             become.
           </p>
           <p>
-            • To-Do Tasks — missions where you set a maximum time to finish the
+            • Do it Tasks — missions where you set a maximum time to finish the
             job. Complete it faster than expected, and you prove your efficiency
             on the battlefield.
           </p>

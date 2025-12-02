@@ -2,10 +2,11 @@
 
 import { CircleUserRound, PanelLeftClose, PanelLeftOpen } from "lucide-react";
 import { signOut } from "next-auth/react";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-const DashHeader = () => {
+const DashHeader = ({ img }: { img: string }) => {
   const [asideIsOpen, setAsideIsOpen] = useState(false);
 
   return (
@@ -19,24 +20,30 @@ const DashHeader = () => {
           onClick={() => setAsideIsOpen(true)}
           className={`cursor-pointer ${asideIsOpen ? "hidden" : ""}`}
         >
-          <PanelLeftOpen width={34} height={34} />
+          <PanelLeftOpen width={36} height={36} />
         </button>
 
-        <div className="ml-auto">
-          <CircleUserRound width={34} height={34} />
-        </div>
+        <Link href={"/dashboard/profile"} className="ml-auto">
+          <Image
+            src={img}
+            alt="User character"
+            width={1024}
+            height={1024}
+            className="w-14 h-14 object-cover rounded-full"
+          />
+        </Link>
       </header>
       <aside
         className={`fixed flex flex-col z-40 transition-all duration-300 ${
           asideIsOpen ? "w-72" : "w-0 -translate-x-96"
         } min-h-screen h-full bg-[#eff5f3]`}
       >
-        <div className="py-4 px-2 w-full flex border-b border-gray-400 items-center justify-end ">
+        <div className="py-[26px] px-2 w-full flex border-b border-gray-400 items-center justify-end">
           <button
             onClick={() => setAsideIsOpen(false)}
             className="cursor-pointer"
           >
-            <PanelLeftClose width={34} height={34} />
+            <PanelLeftClose width={36} height={36} />
           </button>
         </div>
         <div className="flex flex-col h-full gap-4 px-2 py-4 w-full">
@@ -51,6 +58,12 @@ const DashHeader = () => {
             className="hover:bg-primary-50 p-1.5 text-2xl text-gray-950 rounded-md font-semibold"
           >
             Insights
+          </Link>
+          <Link
+            href={"/dashboard/profile"}
+            className="hover:bg-primary-50 p-1.5 text-2xl text-gray-950 rounded-md font-semibold"
+          >
+            Profile
           </Link>
           <button
             onClick={() => signOut({ callbackUrl: "/" })}

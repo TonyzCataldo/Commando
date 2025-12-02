@@ -1,9 +1,15 @@
-"use client"
+"use client";
 import useAddTask from "@/app/api/tasks/useAddTask";
 import AuthInput from "../AuthInput/AuthInput";
 import AuthFormBtn from "@/components/Buttons/AuthFormBtn/AuthFormBtn";
 
-const AddTaskForm = ({sectionId, closeModal}:{sectionId: string; closeModal?: () => void;}) => {
+const AddTaskForm = ({
+  sectionId,
+  closeModal,
+}: {
+  sectionId: string;
+  closeModal?: () => void;
+}) => {
   const {
     register,
     serverError,
@@ -11,7 +17,7 @@ const AddTaskForm = ({sectionId, closeModal}:{sectionId: string; closeModal?: ()
     errors,
     isSubmitting,
     onSubmit,
-  } = useAddTask({sectionId, closeModal});
+  } = useAddTask({ sectionId, closeModal });
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
@@ -49,7 +55,7 @@ const AddTaskForm = ({sectionId, closeModal}:{sectionId: string; closeModal?: ()
               {...register("type")}
               className="h-4 w-4 text-green-600"
             />
-            <span>To-do</span>
+            <span>Do it</span>
           </label>
         </div>
         {errors.type && (

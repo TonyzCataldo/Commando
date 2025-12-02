@@ -9,8 +9,9 @@ const SectionsTimeChart = ({ tasks }: ChartProps) => {
     const sectionMap = new Map<string, number>();
 
     tasks.forEach((t) => {
-      const name = t.section!.name;
-      sectionMap.set(name, (sectionMap.get(name) ?? 0) + t.time);
+      const name = t.section!.name.toLowerCase();
+      const formated = name.charAt(0).toUpperCase() + name.slice(1);
+      sectionMap.set(formated, (sectionMap.get(formated) ?? 0) + t.time);
     });
 
     return Array.from(sectionMap).map(([name, value]) => ({

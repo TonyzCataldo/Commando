@@ -13,6 +13,7 @@ export function useLogin() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm<LoginInput>({ resolver: zodResolver(loginSchema) });
 
@@ -30,7 +31,7 @@ export function useLogin() {
       setServerError("Invalid e-mail or password");
       return;
     }
-
+    reset();
     router.push("/dashboard");
   };
 

@@ -15,6 +15,7 @@ const useRegister = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm<RegisterInput>({ resolver: zodResolver(registerSchema) });
 
@@ -37,7 +38,7 @@ const useRegister = () => {
       setServerError(data?.error ?? "Registration error.");
       return;
     }
-
+    reset();
     router.push("/login");
   };
   return {

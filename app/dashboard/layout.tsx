@@ -3,7 +3,6 @@ import { redirect } from "next/navigation";
 import { getAuthSession } from "@/lib/auth";
 import DashHeader from "@/components/Headers/DashHeader/DashHeader";
 
-
 export default async function DashboardLayout({
   children,
 }: {
@@ -19,7 +18,7 @@ export default async function DashboardLayout({
   // aqui já tem session garantida
   return (
     <div className="flex">
-      <DashHeader />
+      <DashHeader img={session.user.image} />
       {children}
     </div>
   );

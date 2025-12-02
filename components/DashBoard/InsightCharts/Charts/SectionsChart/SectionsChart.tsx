@@ -8,8 +8,10 @@ const SectionsChart = ({ tasks }: ChartProps) => {
     const sectionMap = new Map<string, number>();
 
     tasks.forEach((t) => {
-      const name = t.section!.name;
-      sectionMap.set(name, (sectionMap.get(name) ?? 0) + 1);
+      const name = t.section!.name.toLowerCase();
+      const formatted = name.charAt(0).toUpperCase() + name.slice(1);
+
+      sectionMap.set(formatted, (sectionMap.get(formatted) ?? 0) + 1);
     });
 
     return Array.from(sectionMap).map(([name, value]) => ({

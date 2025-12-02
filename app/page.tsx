@@ -30,16 +30,16 @@ export default async function Home() {
             </div>
             <div className="w-full max-w-[400px] md:max-w-none self-center rounded-2xl border-[1.5px] border-black/10 shadow-[0_4px_20px_rgba(0,0,0,0.12)]">
               <Image
-                src={"/Capturar3.JPG"}
+                src={"/insights-img.JPG"}
                 width={1905}
-                height={916}
+                height={915}
                 className="w-full hidden md:block rounded-2xl"
                 alt="Task list draw"
                 draggable={false}
               />
               <Image
-                src={"/Capturar4.JPG"}
-                width={459}
+                src={"/mobile-insights.JPG"}
+                width={428}
                 height={807}
                 className="w-full max-w-[400px] md:hidden rounded-2xl"
                 alt="Task list draw"

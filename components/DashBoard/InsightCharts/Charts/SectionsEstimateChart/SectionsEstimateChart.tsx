@@ -10,7 +10,8 @@ const SectionsEstimateChart = ({ tasks }: ChartProps) => {
 
     tasks.forEach((t) => {
       const name = t.section!.name;
-      sectionMap.set(name, (sectionMap.get(name) ?? 0) + t.estimate);
+      const formatted = name.charAt(0).toUpperCase() + name.slice(1);
+      sectionMap.set(formatted, (sectionMap.get(formatted) ?? 0) + t.estimate);
     });
 
     return Array.from(sectionMap).map(([name, value]) => ({
