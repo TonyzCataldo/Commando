@@ -152,9 +152,8 @@ public
 
 🎥 Demo Video
 
-(Insert your YouTube link here)
+https://www.youtube.com/watch?v=rR0T8wcvtSc&feature=youtu.be
 
-Required by CS50 — please record a 1–3 minute demo.
 
 🖥 How to Run Locally
 
